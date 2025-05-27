@@ -161,7 +161,6 @@ public class Frontpage extends JFrame implements MouseListener, ActionListener {
  
         this.add(panel);
     }
-     int totalCost;
     public void actionPerformed(ActionEvent ae) {
         String command = ae.getActionCommand();
  
@@ -178,12 +177,16 @@ public class Frontpage extends JFrame implements MouseListener, ActionListener {
             int durationMultiplier = combo1.getSelectedIndex() + 1;
             int persons = comboPerson.getSelectedIndex() + 1;
             int price = packagePrices.getOrDefault(selectedPackage, 1);
-             totalCost = price * durationMultiplier * persons;
-			 this.totalCost=totalCost;
+            int totalCost = price * durationMultiplier * persons;
  
             JOptionPane.showMessageDialog(this, "Total Cost: $" + totalCost);
  
         } else if (ae.getSource() == confirmBtn) {
+			String selectedPackage = (String) combo.getSelectedItem();
+            int durationMultiplier = combo1.getSelectedIndex() + 1;
+            int persons = comboPerson.getSelectedIndex() + 1;
+            int price = packagePrices.getOrDefault(selectedPackage, 1);
+            int totalCost = price * durationMultiplier * persons;
             try {
                 FileWriter writer = new FileWriter("bookingData.txt", true);
                 writer.write("Name: " + userTF.getText() + ", Mobile: " + mobileTF.getText()
@@ -271,5 +274,3 @@ public class Frontpage extends JFrame implements MouseListener, ActionListener {
 	}
 
 }
-
- 
