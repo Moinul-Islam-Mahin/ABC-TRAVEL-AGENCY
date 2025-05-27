@@ -179,7 +179,7 @@ public class Frontpage extends JFrame implements MouseListener, ActionListener {
             int price = packagePrices.getOrDefault(selectedPackage, 1);
             int totalCost = price * durationMultiplier * persons;
  
-            JOptionPane.showMessageDialog(this, "Total Cost: $" + totalCost);
+            JOptionPane.showMessageDialog(this, "Total Cost: " + totalCost+"$");
  
         } else if (ae.getSource() == confirmBtn) {
 			String selectedPackage = (String) combo.getSelectedItem();
@@ -192,7 +192,7 @@ public class Frontpage extends JFrame implements MouseListener, ActionListener {
                 writer.write("Name: " + userTF.getText() + ", Mobile: " + mobileTF.getText()
                         + ", Package: " + combo.getSelectedItem()
                         + ", Duration: " + combo1.getSelectedItem()
-                        + ", Persons: " + comboPerson.getSelectedItem() + "\n" + "Total Cost :" + totalCost+"\n" );
+                        + ", Persons: " + comboPerson.getSelectedItem() + "\n" + "Total Cost : " + totalCost+"$"+"\n" );
                 writer.close();
                 JOptionPane.showMessageDialog(this, "Booking Confirmed!");
             } catch (IOException e) {
